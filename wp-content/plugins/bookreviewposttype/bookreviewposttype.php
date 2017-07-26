@@ -20,15 +20,15 @@ Author URI: http://tatyanaberdan.com
 add_action( 'init', 'rl_create_post_type' );
 function rl_create_post_type() {
 	$labels = array(
-		'name' 							=> __( 'Books', 'readinglist' ),
-		'singular_name' 				=> __( 'Book', 'readinglist' ),
-		'search_items'					=> __( 'Search Books', 'readinglist' ),
-		'all_items'						=> __( 'All Books', 'readinglist' ),
-		'edit_item'						=> __( 'Edit Book', 'readinglist' ),
-		'update_item' 					=> __( 'Update Book', 'readinglist' ),
-		'add_new_item' 					=> __( 'Add New Book', 'readinglist' ),
-		'new_item_name' 				=> __( 'New Book', 'readinglist' ),
-		'menu_name' 					=> __( 'Books', 'readinglist' ),
+		'name' 							=> __( 'Book Reivews', 'post type general name' ),
+		'singular_name' 				=> __( 'Book Review', 'post type singular name' ),
+		'search_items'					=> __( 'Search Book Reivews' ),
+		'all_items'						=> __( 'All Book Reviews' ),
+		'edit_item'						=> __( 'Edit Book Review' ),
+		'update_item' 					=> __( 'Update Book Review' ),
+		'add_new_item' 					=> __( 'Add New Book Review' ),
+		'new_item_name' 				=> __( 'New Book Review' ),
+		'menu_name' 					=> __( 'Book Reviews' ),
 	);
 	
 	$args = array (
@@ -36,10 +36,10 @@ function rl_create_post_type() {
 		'public' 		=> true,
 		'menu_position' => 20,
 		'has_archive' 	=> true,
-		'rewrite'		=> array( 'slug' => 'books' ),
+		'rewrite'		=> array( 'slug' => 'book Reviews' ),
 		'supports' 		=> array( 'title', 'thumbnail', 'editor' )
 	);
-	register_post_type( 'rl_book', $args );
+	register_post_type( 'rl_book reviews', $args );
 }
 /**
  * Create our custom taxonomies. One hierarchical one for genres and a flat one for authors.
@@ -47,24 +47,24 @@ function rl_create_post_type() {
  * @since Reading List 0.1
  */
 /* Hook in to the init action and call rl_create_book_taxonomies when it fires. */
-add_action( 'init', 'rl_create_book_taxonomies', 0 );
-function rl_create_book_taxonomies() {
+add_action( 'init', 'rl_create_bookreview_taxonomies', 0 );
+function rl_create_bookreview_taxonomies() {
 	// Add new taxonomy, keep it non-hierarchical (like tags)
 	$labels = array(
-		'name' 							=> __( 'Authors', 'readinglist' ),
-		'singular_name' 				=> __( 'Author', 'readinglist' ),
-		'search_items' 					=> __( 'Search Authors', 'readinglist' ),
-		'all_items' 					=> __( 'All Authors', 'readinglist' ),
-		'edit_item' 					=> __( 'Edit Author', 'readinglist' ), 
-		'update_item' 					=> __( 'Update Author', 'readinglist' ),
-		'add_new_item' 					=> __( 'Add New Author', 'readinglist' ),
-		'new_item_name' 				=> __( 'New Author Name', 'readinglist' ),
-		'separate_items_with_commas' 	=> __( 'Separate authors with commas', 'readinglist' ),
-		'choose_from_most_used' 		=> __( 'Choose from the most used authors', 'readinglist' ),
-		'menu_name' 					=> __( 'Authors', 'readinglist' ),
+		'name' 							=> __( 'Authors', 'taxonomy general name' ),
+		'singular_name' 				=> __( 'Author', 'taxonomy singular name' ),
+		'search_items' 					=> __( 'Search Authors'),
+		'all_items' 					=> __( 'All Authors' ),
+		'edit_item' 					=> __( 'Edit Author' ), 
+		'update_item' 					=> __( 'Update Author' ),
+		'add_new_item' 					=> __( 'Add New Author' ),
+		'new_item_name' 				=> __( 'New Author Name' ),
+		'separate_items_with_commas' 	=> __( 'Separate authors with commas' ),
+		'choose_from_most_used' 		=> __( 'Choose from the most used authors' ),
+		'menu_name' 					=> __( 'Authors' ),
 	); 	
 		
-	register_taxonomy( 'book-author', array( 'rl_book' ), array(
+	register_taxonomy( 'book-author', array( 'rl_bookreview' ), array(
 		'hierarchical' 		=> false,
 		'labels' 			=> $labels,
 		'show_ui' 			=> true,
