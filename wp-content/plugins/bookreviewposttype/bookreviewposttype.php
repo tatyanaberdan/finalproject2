@@ -36,7 +36,7 @@ function rl_create_post_type() {
 		'public' 		=> true,
 		'menu_position' => 20,
 		'has_archive' 	=> true,
-		'rewrite'		=> array( 'slug' => 'book Reviews' ),
+		'rewrite'		=> array( 'slug' => 'book reviews' ),
 		'supports' 		=> array( 'title', 'thumbnail', 'editor' )
 	);
 	register_post_type( 'rl_book reviews', $args );
@@ -46,7 +46,7 @@ function rl_create_post_type() {
  *
  * @since Reading List 0.1
  */
-/* Hook in to the init action and call rl_create_book_taxonomies when it fires. */
+/* Hook in to the init action and call rl_create_bookreview_taxonomies when it fires. */
 add_action( 'init', 'rl_create_bookreview_taxonomies', 0 );
 function rl_create_bookreview_taxonomies() {
 	// Add new taxonomy, keep it non-hierarchical (like tags)
