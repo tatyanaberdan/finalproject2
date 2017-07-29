@@ -1,34 +1,33 @@
 <?php
-/** 
- * @package Reading_List
+/**
+ * @package bookreviews
  * @version 0.1
- Code modified from https://github.com/andrewspittle/reading-list/blob/master/index.php
  */
 /*
-Plugin Name: Book Review Custom Post
-Plugin URI: http://andrewspittle.net/projects/reading-list??
-Description: A custom post type for writing book reivews.
-Author: Tat'yana Berdan 
+Plugin Name: Book Reviews
+Plugin URI: http://tatyanaberdan.com/book-reviews
+Description: Review books I've read.
+Author: Tat'yana Berdan
 Version: 0.1
 Author URI: http://tatyanaberdan.com
 */
 /**
  * Start up our custom post type and hook it in to the init action when that fires.
  *
- * @since Reading List 0.1
+ * @since bookreviews 0.1
  */
 add_action( 'init', 'rl_create_post_type' );
 function rl_create_post_type() {
 	$labels = array(
-		'name' 							=> __( 'Book Reivews', 'post type general name' ),
-		'singular_name' 				=> __( 'Book Review', 'post type singular name' ),
-		'search_items'					=> __( 'Search Book Reivews' ),
-		'all_items'						=> __( 'All Book Reviews' ),
-		'edit_item'						=> __( 'Edit Book Review' ),
-		'update_item' 					=> __( 'Update Book Review' ),
-		'add_new_item' 					=> __( 'Add New Book Review' ),
-		'new_item_name' 				=> __( 'New Book Review' ),
-		'menu_name' 					=> __( 'Book Reviews' ),
+		'name' 							=> __( 'Book Reviews', 'bookreviews' ),
+		'singular_name' 				=> __( 'Book Review', 'bookreviews' ),
+		'search_items'					=> __( 'Search Book Reviews', 'bookreviews' ),
+		'all_items'						=> __( 'All Book Reviews', 'bookreviews' ),
+		'edit_item'						=> __( 'Edit Book Review', 'bookreviews' ),
+		'update_item' 					=> __( 'Update Book Review', 'bookreviews' ),
+		'add_new_item' 					=> __( 'Add New Book Review', 'bookreviews' ),
+		'new_item_name' 				=> __( 'New Book Review', 'bookreviews' ),
+		'menu_name' 					=> __( 'Book Reviews', 'bookreviews' ),
 	);
 	
 	$args = array (
@@ -36,35 +35,35 @@ function rl_create_post_type() {
 		'public' 		=> true,
 		'menu_position' => 20,
 		'has_archive' 	=> true,
-		'rewrite'		=> array( 'slug' => 'book reviews' ),
+		'rewrite'		=> array( 'slug' => 'reviews' ),
 		'supports' 		=> array( 'title', 'thumbnail', 'editor' )
 	);
-	register_post_type( 'rl_book reviews', $args );
+	register_post_type( 'rl_bookreviews', $args );
 }
 /**
  * Create our custom taxonomies. One hierarchical one for genres and a flat one for authors.
  *
  * @since Reading List 0.1
  */
-/* Hook in to the init action and call rl_create_bookreview_taxonomies when it fires. */
-add_action( 'init', 'rl_create_bookreview_taxonomies', 0 );
-function rl_create_bookreview_taxonomies() {
+/* Hook in to the init action and call rl_create_book_taxonomies when it fires. */
+add_action( 'init', 'rl_create_bookreviews_taxonomies', 0 );
+function rl_create_bookreviews_taxonomies() {
 	// Add new taxonomy, keep it non-hierarchical (like tags)
 	$labels = array(
-		'name' 							=> __( 'Authors', 'taxonomy general name' ),
-		'singular_name' 				=> __( 'Author', 'taxonomy singular name' ),
-		'search_items' 					=> __( 'Search Authors'),
-		'all_items' 					=> __( 'All Authors' ),
-		'edit_item' 					=> __( 'Edit Author' ), 
-		'update_item' 					=> __( 'Update Author' ),
-		'add_new_item' 					=> __( 'Add New Author' ),
-		'new_item_name' 				=> __( 'New Author Name' ),
-		'separate_items_with_commas' 	=> __( 'Separate authors with commas' ),
-		'choose_from_most_used' 		=> __( 'Choose from the most used authors' ),
-		'menu_name' 					=> __( 'Authors' ),
+		'name' 							=> __( 'Authors', 'bookreviews' ),
+		'singular_name' 				=> __( 'Author', 'bookreviews' ),
+		'search_items' 					=> __( 'Search Authors', 'bookreviews' ),
+		'all_items' 					=> __( 'All Authors', 'bookreviews' ),
+		'edit_item' 					=> __( 'Edit Author', 'bookreviews' ), 
+		'update_item' 					=> __( 'Update Author', 'bookreviews' ),
+		'add_new_item' 					=> __( 'Add New Author', 'bookreviews' ),
+		'new_item_name' 				=> __( 'New Author Name', 'bookreviews' ),
+		'separate_items_with_commas' 	=> __( 'Separate authors with commas', 'bookreviews' ),
+		'choose_from_most_used' 		=> __( 'Choose from the most used authors', 'bookreviews' ),
+		'menu_name' 					=> __( 'Authors', 'bookreviews' ),
 	); 	
 		
-	register_taxonomy( 'book-author', array( 'rl_bookreview' ), array(
+	register_taxonomy( 'book-author', array( 'rl_bookreviews' ), array(
 		'hierarchical' 		=> false,
 		'labels' 			=> $labels,
 		'show_ui' 			=> true,
@@ -73,12 +72,13 @@ function rl_create_bookreview_taxonomies() {
 		'rewrite' 			=> array( 'slug' => 'book-author' ),
 	));
 }
+
 /**
- * Add custom meta box for rating a book. 
+ * Add custom meta box for tracking the page numbers of the book.
  *
  * Props to Justin Tadlock: http://wp.smashingmagazine.com/2011/10/04/create-custom-post-meta-boxes-wordpress/
  *
- * @since Reading List 1.0???
+ * @since Reading List 1.0
  *
 */
 /* Fire our meta box setup function on the editor screen. */
@@ -90,7 +90,7 @@ function rl_post_meta_boxes_setup() {
 	add_action( 'add_meta_boxes', 'rl_add_post_meta_boxes' );
 	
 	/* Save post meta on the 'save_post' hook. */
-	add_action( 'save_post', 'rl_pages_save_meta', 10, 2 );
+	add_action( 'save_post', 'rl_rating_save_meta', 10, 2 );
 }
 /* Create one or more meta boxes to be displayed on the post editor screen. */
 function rl_add_post_meta_boxes() {
@@ -98,7 +98,7 @@ function rl_add_post_meta_boxes() {
 		'rl-rating',								// Unique ID
 		esc_html__( 'Rating', 'example' ),		// Title
 		'rl_rating_meta_box',					// Callback function
-		'rl_bookreview',								// Add metabox to our custom post type
+		'rl_bookreviews',								// Add metabox to our custom post type
 		'side',									// Context
 		'default'								// Priority
 	);
@@ -108,7 +108,7 @@ function rl_rating_meta_box( $object, $box ) { ?>
 
 	<?php wp_nonce_field( basename( __FILE__ ), 'rl_rating_nonce' ); ?>
 
-	<p class="howto"><label for="rl-rating"><?php _e( "Rate the book on a scale of 1 to 10.", 'example' ); ?></label></p>
+	<p class="howto"><label for="rl-rating"><?php _e( "Rate a book on a scale of one to ten.", 'example' ); ?></label></p>
 	<p><input class="widefat" type="text" name="rl-rating" id="rl-rating" value="<?php echo esc_attr( get_post_meta( $object->ID, 'rl_rating', true ) ); ?>" size="30" /></p>
 <?php }
 /* Save the meta box's data. */
@@ -137,4 +137,5 @@ function rl_rating_save_meta( $post_id, $post ) {
 	elseif ( '' == $new_meta_value && $meta_value )
 		delete_post_meta( $post_id, $meta_key, $meta_value );
 } 
+
 ?>
