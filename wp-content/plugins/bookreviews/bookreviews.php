@@ -73,6 +73,8 @@ function rl_create_bookreviews_taxonomies() {
 	));
 }
 
+the_subtitle();
+
 /**
  * Add custom meta box for tracking the page numbers of the book.
  *
