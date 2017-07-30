@@ -71,10 +71,29 @@ function rl_create_bookreviews_taxonomies() {
 		'query_var' 		=> true,
 		'rewrite' 			=> array( 'slug' => 'book-author' ),
 	));
+
+	$labels = array(
+		'name' 							=> __( 'Genres', 'bookreviews' ),
+		'singular_name' 				=> __( 'Genre', 'bookreviews' ),
+		'search_items' 					=> __( 'Search Genres', 'bookreviews' ),
+		'all_items' 					=> __( 'All Genres', 'bookreviews' ),
+		'edit_item' 					=> __( 'Edit Genre', 'bookreviews' ), 
+		'update_item' 					=> __( 'Update Genre', 'bookreviews' ),
+		'add_new_item' 					=> __( 'Add New Genre', 'bookreviews' ),
+		'new_item_name' 				=> __( 'New Genre Type', 'bookreviews' ),
+		'separate_items_with_commas' 	=> __( 'Separate genres with commas', 'bookreviews' ),
+		'choose_from_most_used' 		=> __( 'Choose from the most used genres', 'bookreviews' ),
+		'menu_name' 					=> __( 'Genres', 'bookreviews' ),
+	); 	
+	register_taxonomy( 'book-genre', array( 'rl_bookreviews' ), array(
+		'hierarchical' 		=> false,
+		'labels' 			=> $labels,
+		'show_ui' 			=> true,
+		'show_admin_column' => true,
+		'query_var' 		=> true,
+		'rewrite' 			=> array( 'slug' => 'book-genre' ),
+	));
 }
-
-the_subtitle();
-
 /**
  * Add custom meta box for tracking the page numbers of the book.
  *
