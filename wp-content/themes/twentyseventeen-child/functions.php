@@ -22,4 +22,5 @@ echo '<div class="before-content">'. $cf .'</div>';
     }
   }
 }
+
 ?>
