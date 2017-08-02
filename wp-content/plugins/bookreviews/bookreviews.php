@@ -131,6 +131,7 @@ function rl_rating_meta_box( $object, $box ) { ?>
 	<p class="howto"><label for="rl-rating"><?php _e( "Rate a book on a scale of one to ten.", 'example' ); ?></label></p>
 	<p><input class="widefat" type="text" name="rl-rating" id="rl-rating" value="<?php echo esc_attr( get_post_meta( $object->ID, 'rl_rating', true ) ); ?>" size="30" /></p>
 <?php }
+
 /* Save the meta box's data. */
 function rl_rating_save_meta( $post_id, $post ) {
 	/* Verify the nonce before proceeding. */
@@ -157,5 +158,4 @@ function rl_rating_save_meta( $post_id, $post ) {
 	elseif ( '' == $new_meta_value && $meta_value )
 		delete_post_meta( $post_id, $meta_key, $meta_value );
 } 
- 
 ?>
