@@ -8,6 +8,9 @@
  * @subpackage Twenty_Seventeen
  * @since 1.0
  * @version 1.0
+
+ Code for displaying 'currently reading' custom theme taken from http://www.wpbeginner.com/wp-tutorials/wordpress-custom-fields-101-tips-tricks-and-hacks/#cfoutofloop
+ 
  */
 
 get_header(); ?>
@@ -30,10 +33,8 @@ get_header(); ?>
 				the_post_navigation( array(
 					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
 					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
-				) ); ?>
-				
-				<p>I am currently reading: <?php echo get_post_meta($post->ID, 'Currently Reading', true); ?></p>
-
+				) ); ?> 
+				<p>I am currently reading: <?php echo get_post_meta($post->ID, 'Currently Reading', true); ?></p> 	
 			<?php
 			endwhile; // End of the loop.
 			?>
