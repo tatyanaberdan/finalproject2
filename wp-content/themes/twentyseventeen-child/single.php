@@ -36,7 +36,7 @@ get_header(); ?>
 				) ); ?> 
 				<?php echo get_post_meta($post->ID, 'Currently Reading', true); ?>
 				<?php echo get_post_meta($post->ID, 'rl-rating', true); ?>
-				<p>Hello<?php echo get_post_meta($post->ID, 'favorite_quote', true); ?></p>
+				<p><?php echo get_post_meta($post->ID, 'favorite_quote', true); ?></p>
 			<?php
 			endwhile; // End of the loop.
 			?>
