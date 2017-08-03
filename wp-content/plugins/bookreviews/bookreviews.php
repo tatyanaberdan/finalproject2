@@ -94,6 +94,7 @@ function rl_create_bookreviews_taxonomies() {
 		'rewrite' 			=> array( 'slug' => 'book-genre' ),
 	));
 }
+
 /**
  * Add custom meta box for tracking the page numbers of the book.
  *

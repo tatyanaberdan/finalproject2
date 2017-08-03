@@ -34,7 +34,9 @@ get_header(); ?>
 					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
 					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
 				) ); ?> 
-				<p>I am currently reading: <?php echo get_post_meta($post->ID, 'Currently Reading', true); ?></p> 	
+				<?php echo get_post_meta($post->ID, 'Currently Reading', true); ?>
+				<?php echo get_post_meta($post->ID, 'rl-rating', true); ?>
+				<p>Hello<?php echo get_post_meta($post->ID, 'Quote(s)', true); ?></p>
 			<?php
 			endwhile; // End of the loop.
 			?>
