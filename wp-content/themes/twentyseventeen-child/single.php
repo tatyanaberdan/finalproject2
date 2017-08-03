@@ -35,7 +35,6 @@ get_header(); ?>
 					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
 				) ); ?> 
 				<?php echo get_post_meta($post->ID, 'Currently Reading', true); ?>
-				<?php echo get_post_meta($post->ID, 'rl-rating', true); ?>
 				<p><?php echo get_post_meta($post->ID, 'favorite_quote', true); ?></p>
 			<?php
 			endwhile; // End of the loop.
