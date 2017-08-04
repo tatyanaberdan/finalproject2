@@ -9,7 +9,7 @@
  * @since 1.0
  * @version 1.0
 
- Code for displaying 'currently reading' custom theme taken from http://www.wpbeginner.com/wp-tutorials/wordpress-custom-fields-101-tips-tricks-and-hacks/#cfoutofloop
+ Code for displaying 'currently reading' custom field taken from http://www.wpbeginner.com/wp-tutorials/wordpress-custom-fields-101-tips-tricks-and-hacks/#cfoutofloop
  
  */
 
