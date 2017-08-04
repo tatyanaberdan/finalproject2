@@ -197,6 +197,5 @@ function rl_pages_save_meta( $post_id, $post ) {
 		update_post_meta( $post_id, $meta_key, $new_meta_value );
 	/* If there is no new meta value but an old value exists, delete it. */
 	elseif ( '' == $new_meta_value && $meta_value )
-		delete_post_meta( $post_id, $meta_key, $meta_value );
-} 
-?>
+		delete_post_meta( $post_id, $meta_key, $meta_value ); } 
+	?>
