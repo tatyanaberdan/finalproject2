@@ -1,6 +1,6 @@
 /*
  Theme Name:   Twenty Seventeen Child
- Theme URI:    http://tatyanaberdan.com/twenty-seventeen-child/
+ Theme URI:    N/A
  Description:  Twenty Seventeen Child Theme
  Author:       Tat'yana Berdan
  Author URI:   http://tatyanaberdan.com
@@ -12,10 +12,14 @@
  Text Domain:  twenty-seventeen-child
 */
 
-.entry-title {
-	color: #222;
+.site-title {
+	clear: none;
 	font-size: 10px;
-	font-size: 0.9rem;
-	font-weight: 800;
-	letter-spacing: 0.14em;
-	text-transform: uppercase;
+	font-size: 1.5rem;
+	font-weight: 100;
+	line-height: 1.25;
+	letter-spacing: 0.08em;
+	margin: 0;
+	padding: 0;
+	text-transform: lowercase;
+}
