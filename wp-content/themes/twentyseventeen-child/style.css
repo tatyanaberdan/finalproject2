@@ -12,14 +12,5 @@
  Text Domain:  twenty-seventeen-child
 */
 
-.site-title {
-	clear: none;
-	font-size: 10px;
-	font-size: 1.5rem;
-	font-weight: 100;
-	line-height: 1.25;
-	letter-spacing: 0.08em;
-	margin: 0;
-	padding: 0;
-	text-transform: lowercase;
-}
+#rl_pages { font-variant: small-caps; color: maroon; }
+
