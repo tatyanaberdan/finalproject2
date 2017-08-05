@@ -25,7 +25,13 @@ get_header(); ?>
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/post/content', get_post_format() );
+				get_template_part( 'template-parts/post/content', get_post_format() ); 
+
+				echo get_post_meta($post->ID, 'favorite_quote', true); 
+
+				echo get_post_meta($post->ID, 'rl_pages', true); 
+
+				echo get_post_meta($post->ID, 'rl_rating', true); 
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
@@ -38,7 +44,6 @@ get_header(); ?>
 				) ); ?> 
 
 				<?php echo get_post_meta($post->ID, 'Currently Reading', true); ?>
-				<p><?php echo get_post_meta($post->ID, 'favorite_quote', true); ?></p>
 				
 				<?php if ( function_exists( 'vote_poll' ) && ! in_pollarchive() ): ?>
 				<li><?php get_poll(2);?></li> 
