@@ -23,7 +23,6 @@ echo '<div class="before-content">'. $cf .'</div>';
   }
 }
 ?>
-
 <?php 
 /*  Being custom post types */
 add_action('init', 'slideshow_register');
