@@ -29,7 +29,13 @@ get_header(); ?>
 
 				echo get_post_meta($post->ID, 'favorite_quote', true); 
 
+				echo "<br />";
+
+				echo "<br />";
+
 				echo get_post_meta($post->ID, 'rl_pages', true);
+
+				echo "<br />";
 
 				echo get_post_meta($post->ID, 'rl_rating', true); 
 
