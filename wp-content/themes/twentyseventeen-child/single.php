@@ -26,7 +26,7 @@ get_header(); ?>
 			while ( have_posts() ) : the_post();
 
 				get_template_part( 'template-parts/post/content', get_post_format() ); 
-
+				
 				echo get_post_meta($post->ID, 'favorite_quote', true); 
 
 				echo get_post_meta($post->ID, 'rl_pages', true);
