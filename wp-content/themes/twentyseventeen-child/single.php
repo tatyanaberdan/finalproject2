@@ -47,9 +47,6 @@ get_header(); ?>
 				
 				<?php if ( function_exists( 'vote_poll' ) && ! in_pollarchive() ): ?>
 				<li><?php get_poll(2);?></li> 
-				</ul>
-				<?php display_polls_archive_link(); ?>
-				</li> 
 				<?php endif; ?>
 			<?php
 			endwhile; // End of the loop.
