@@ -24,7 +24,7 @@ get_header(); ?>
 			endwhile;
 			
 // metaslider code retrieved from metaslider plugin
-    	echo do_shortcode("[metaslider id=114]"); 
+    	echo do_shortcode("[metaslider id=353]"); 
 
 		else : // I'm not sure it's possible to have no posts when this page is shown, but WTH.
 			get_template_part( 'template-parts/post/content', 'none' );
