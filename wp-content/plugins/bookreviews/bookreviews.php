@@ -10,7 +10,6 @@ Description: Review books I've read.
 Author: Tat'yana Berdan
 Version: 0.1
 Author URI: http://tatyanaberdan.com
-
 Code adapted from Andre Spittle's Book List plugin: https://github.com/andrewspittle/reading-list/blob/master/index.php
 */
 /**
@@ -89,7 +88,6 @@ function rl_create_bookreviews_taxonomies() {
 		'rewrite' 			=> array( 'slug' => 'book-genre' ),
 	));
 }
-
 /**
  * Add custom meta box for tracking the rating and page numbers of the book.
  *
@@ -129,13 +127,11 @@ function rl_rating_meta_box( $object, $box ) { ?>
 	<p class="howto"><label for="rl-rating"><?php _e( "Rate a book on a scale of one to ten.", 'example' ); ?></label></p>
 	<p><input class="widefat" type="text" name="rl-rating" id="rl-rating" value="<?php echo esc_attr( get_post_meta( $object->ID, 'rl_rating', true ) ); ?>" size="30" /></p>
 <?php }
-
 function rl_pages_meta_box( $object, $box ) { ?>
 <?php wp_nonce_field( basename( __FILE__ ), 'rl_pages_nonce' ); ?>
 	<p class="howto"><label for="rl-pages"><?php _e( "How many pages did the book have?", 'example' ); ?></label></p>
 	<p><input class="widefat" type="text" name="rl-pages" id="rl-pages" value="<?php echo esc_attr( get_post_meta( $object->ID, 'rl_pages', true ) ); ?>" size="30" /></p>
 <?php }
-
 function rl_rating_save_meta( $post_id, $post ) {
 	if ( !isset( $_POST['rl_rating_nonce'] ) || !wp_verify_nonce( $_POST['rl_rating_nonce'], basename( __FILE__ ) ) )
 		return $post_id;
@@ -152,7 +148,6 @@ function rl_rating_save_meta( $post_id, $post ) {
 	elseif ( '' == $new_meta_value && $meta_value )
 		delete_post_meta( $post_id, $meta_key, $meta_value );
 } 
-
 function rl_pages_save_meta( $post_id, $post ) {
 	if ( !isset( $_POST['rl_pages_nonce'] ) || !wp_verify_nonce( $_POST['rl_pages_nonce'], basename( __FILE__ ) ) )
 		return $post_id;
