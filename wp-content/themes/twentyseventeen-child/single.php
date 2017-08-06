@@ -9,7 +9,7 @@
  * @since 1.0
  * @version 1.0
 
- Code for displaying 'currently reading' and 'favorite_quote' custom fields adapted from http://www.wpbeginner.com/wp-tutorials/wordpress-custom-fields-101-tips-tricks-and-hacks/#cfoutofloop
+ Code for displaying 'currently reading', 'favorite_quote', as well as 'rl_rating' and 'rl_pages' custom fields adapted from http://www.wpbeginner.com/wp-tutorials/wordpress-custom-fields-101-tips-tricks-and-hacks/#cfoutofloop
 
  Code for inserting 'what should I read next?' poll into posts adapted from https://wordpress.org/plugins/wp-polls/
  
