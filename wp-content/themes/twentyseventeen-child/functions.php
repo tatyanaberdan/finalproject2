@@ -21,4 +21,8 @@ function my_get_posts($query) {
         $query->set('post_type', array( 'post', 'rl_bookreviews'));
     return $query;
 }
+// Create Slider Post Type
+//require( get_template_directory() . 'plugins/slider/slider_post_type.php' );
+// Create Slider
+//require( get_template_directory() . 'plugins/slider/slider.php' );
 ?>
