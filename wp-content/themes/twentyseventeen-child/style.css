@@ -11,3 +11,8 @@
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
  Text Domain:  twenty-seventeen-child
 */
+
+.site-title, .site-description {
+	text-transform: lowercase;
+}
+
