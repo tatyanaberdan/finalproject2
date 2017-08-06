@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying all single posts with the book reviews custom post type
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
@@ -27,7 +27,17 @@ get_header(); ?>
 
 				get_template_part( 'template-parts/post/content', get_post_format() ); 
 
-				echo get_post_meta($post->ID, 'Currently Reading', true);
+				echo get_post_meta($post->ID, 'favorite_quote', true); 
+
+				echo "<br />";
+
+				echo "<br />";
+
+				echo get_post_meta($post->ID, 'rl_pages', true);
+
+				echo "<br />";
+
+				echo get_post_meta($post->ID, 'rl_rating', true); 
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
