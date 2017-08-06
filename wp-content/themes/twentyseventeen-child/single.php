@@ -39,6 +39,8 @@ get_header(); ?>
 
 				echo get_post_meta($post->ID, 'rl_rating', true); 
 
+				echo get_post_meta($post->ID, 'Currently Reading', true);
+
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
 					comments_template();
@@ -49,7 +51,9 @@ get_header(); ?>
 					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
 				) ); ?> 
 
-				<?php echo get_post_meta($post->ID, 'Currently Reading', true); ?>
+				<?php echo "<br />"; ?>
+
+				<?php echo "<br />"; ?>
 				
 				<?php if ( function_exists( 'vote_poll' ) && ! in_pollarchive() ): ?>
 				<li><?php get_poll(2);?></li> 
