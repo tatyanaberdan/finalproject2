@@ -13,3 +13,12 @@ function my_theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 ?>
+<?php
+// adding custom post type to regular RSS feed to get custom post type to show up in blog - code adapted from http://www.wpbeginner.com/wp-tutorials/how-to-add-custom-post-types-to-your-main-wordpress-rss-feed/
+function myfeed_request($qv) {
+    if (isset($qv['feed']))
+        $qv['post_type'] = array('rl_bookreviews');
+    return $qv;
+}
+add_filter('request', 'myfeed_request'); 
+?>
