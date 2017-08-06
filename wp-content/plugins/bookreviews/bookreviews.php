@@ -35,7 +35,8 @@ function rl_create_post_type() {
 		'menu_position' => 20,
 		'has_archive' 	=> true,
 		'rewrite'		=> array( 'slug' => 'reviews' ),
-		'supports' 		=> array( 'title', 'thumbnail', 'editor' )
+		'supports' 		=> array( 'title', 'thumbnail', 'editor' ),
+		'taxonomies'	=> array( 'category' )
 	);
 	register_post_type( 'rl_bookreviews', $args );
 }
