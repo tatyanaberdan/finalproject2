@@ -43,9 +43,9 @@ get_header(); ?>
 
 				<?php echo "<br />"; ?>
 				
-				<?php if ( function_exists( 'vote_poll' ) && ! in_pollarchive() ): ?>
-				<li><?php get_poll(2);?></li> 
-				<?php endif; ?>
+				<?php //removing poll code if ( function_exists( 'vote_poll' ) && ! in_pollarchive() ): ?>
+				<li><?php //removing poll code get_poll(2);?></li> 
+				<?php //removing poll code endif; ?>
 				
 			<?php
 			endwhile; // End of the loop.
