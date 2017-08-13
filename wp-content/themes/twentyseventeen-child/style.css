@@ -15,3 +15,41 @@
 .site-title, .site-description {
 	text-transform: lowercase;
 }
+
+body,
+	a,
+	.site-title a,
+	.twentyseventeen-front-page.has-header-image .site-title,
+	.twentyseventeen-front-page.has-header-video .site-title,
+	.twentyseventeen-front-page.has-header-image .site-title a,
+	.twentyseventeen-front-page.has-header-video .site-title a {
+		color: #6495ED !important; /* Make sure color schemes don't affect to print */
+}
+
+h2,
+	h5,
+	blockquote,
+	.site-description,
+	.twentyseventeen-front-page.has-header-image .site-description,
+	.twentyseventeen-front-page.has-header-video .site-description,
+	.entry-meta,
+	.entry-meta a {
+		color: #6495ED !important; /* Make sure color schemes don't affect to print */
+	}
+
+
+.entry-content {
+	color: #4682B4;
+}
+
+.entry-title {
+	color: #D2B48C;
+}
+
+.panel-content {
+	color: #4682B4;
+}
+
+.page-header {
+	color: #4682B4;
+}
