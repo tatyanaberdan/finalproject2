@@ -109,7 +109,7 @@ function rl_post_meta_boxes_setup() {
 function rl_add_post_meta_boxes() {
 	add_meta_box(
 		'rl-rating',								// Unique ID
-		esc_html__('Rating', 'example'),		// Title
+		esc_html__('Rating out of 10', 'example'),		// Title
 		'rl_rating_meta_box',					// Callback function
 		'rl_bookreviews',								// Add metabox to our custom post type
 		'side',									// Context
@@ -117,7 +117,7 @@ function rl_add_post_meta_boxes() {
 	);
 	add_meta_box(
 		'rl-pages',								// Unique ID
-		esc_html__('Pages', 'example'),		// Title
+		esc_html__('Total Pages', 'example'),		// Title
 		'rl_pages_meta_box',					// Callback function
 		'rl_bookreviews',								// Add metabox to our custom post type
 		'side',									// Context
